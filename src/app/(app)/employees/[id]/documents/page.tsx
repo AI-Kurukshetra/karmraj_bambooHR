@@ -47,12 +47,12 @@ export default async function EmployeeDocumentsPage({
       <div className="flex items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Documents</h1>
-          <p className="mt-1 text-sm text-zinc-600">
+          <p className="mt-1 text-sm text-zinc-300">
             {employee.first_name} {employee.last_name} ({employee.employee_code})
           </p>
         </div>
         <Link
-          className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+          className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
           href={`/employees/${employee.id}`}
         >
           Back
@@ -61,9 +61,9 @@ export default async function EmployeeDocumentsPage({
 
       <EmployeeDocumentUploader employeeId={employee.id} />
 
-      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white">
+      <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
         <table className="w-full text-left text-sm">
-          <thead className="bg-zinc-50 text-xs uppercase tracking-wide text-zinc-600">
+          <thead className="bg-zinc-950/60 text-xs uppercase tracking-wide text-zinc-400">
             <tr>
               <th className="px-4 py-3">Type</th>
               <th className="px-4 py-3">Uploaded</th>
@@ -71,21 +71,21 @@ export default async function EmployeeDocumentsPage({
               <th className="px-4 py-3"></th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-zinc-100">
+          <tbody className="divide-y divide-zinc-800">
             {(docs ?? []).length === 0 ? (
               <tr>
-                <td className="px-4 py-6 text-sm text-zinc-600" colSpan={4}>
+                <td className="px-4 py-6 text-sm text-zinc-300" colSpan={4}>
                   No documents uploaded yet.
                 </td>
               </tr>
             ) : (
               (docs ?? []).map((d) => (
-                <tr key={d.id} className="hover:bg-zinc-50">
+                <tr key={d.id} className="transition-colors hover:bg-zinc-950/60">
                   <td className="px-4 py-3 font-medium">{d.document_type}</td>
-                  <td className="px-4 py-3 text-zinc-700">
+                  <td className="px-4 py-3 text-zinc-200">
                     {new Date(d.created_at).toLocaleString()}
                   </td>
-                  <td className="px-4 py-3 text-zinc-700">{d.file_path}</td>
+                  <td className="px-4 py-3 text-zinc-200">{d.file_path}</td>
                   <td className="px-4 py-3 text-right">
                     <Link
                       className="underline"

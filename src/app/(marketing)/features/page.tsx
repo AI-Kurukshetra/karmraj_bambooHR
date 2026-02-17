@@ -37,19 +37,19 @@ export default function FeaturesPage() {
   ];
 
   return (
-    <main className="bg-white">
+    <main className="bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <h1 className="text-3xl font-semibold tracking-tight">Features</h1>
-            <p className="mt-2 max-w-2xl text-sm text-zinc-600">
+            <p className="mt-2 max-w-2xl text-sm text-zinc-300">
               Built to be production-ready for internal HR operations: secure by
               default, auditable, and designed for scale.
             </p>
           </div>
           <Link
             href="/login"
-            className="inline-flex items-center justify-center rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
+            className="inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:bg-zinc-200 motion-safe:animate-[fade-up_500ms_ease-out_both]"
           >
             Sign in
           </Link>
@@ -60,11 +60,11 @@ export default function FeaturesPage() {
             <section
               key={b.id}
               id={b.id}
-              className="rounded-2xl border border-zinc-200 bg-white p-6"
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] motion-safe:animate-[fade-up_550ms_ease-out_both]"
             >
               <div className="text-sm font-semibold">{b.title}</div>
-              <p className="mt-2 text-sm text-zinc-600">{b.body}</p>
-              <ul className="mt-4 grid list-disc gap-2 pl-5 text-sm text-zinc-700">
+              <p className="mt-2 text-sm text-zinc-300">{b.body}</p>
+              <ul className="mt-4 grid list-disc gap-2 pl-5 text-sm text-zinc-200">
                 {b.points.map((p) => (
                   <li key={p}>{p}</li>
                 ))}

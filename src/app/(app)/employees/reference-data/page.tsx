@@ -11,7 +11,7 @@ export default async function EmployeeReferenceDataPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Employee reference data</h1>
-        <p className="mt-1 text-sm text-zinc-600">
+        <p className="mt-1 text-sm text-zinc-300">
           Manage Departments and Designations used in the employee master.
         </p>
       </div>
@@ -26,11 +26,11 @@ export default async function EmployeeReferenceDataPage() {
 
 function Card({ title, href }: { title: string; href: string }) {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-5">
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
       <div className="text-sm font-semibold">{title}</div>
       <div className="mt-3">
         <Link
-          className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+          className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
           href={href}
         >
           Manage

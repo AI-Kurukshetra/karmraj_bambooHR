@@ -72,7 +72,7 @@ export default async function DashboardPage() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
-          <p className="mt-1 text-sm text-zinc-600">
+          <p className="mt-1 text-sm text-zinc-300">
             Operational overview (RLS enforced). Signed in as{" "}
             <span className="font-medium">{data.user?.email}</span>.
           </p>
@@ -80,13 +80,13 @@ export default async function DashboardPage() {
         <div className="flex flex-wrap gap-2">
           <Link
             href="/employees"
-            className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+            className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
           >
             View employees
           </Link>
           <Link
             href="/reports"
-            className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+            className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
           >
             Reports
           </Link>
@@ -94,7 +94,7 @@ export default async function DashboardPage() {
       </div>
 
       {!hasOrg ? (
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
+        <div className="rounded-2xl border border-amber-400/30 bg-amber-500/10 p-5 text-sm text-amber-200">
           No organization is linked to your user yet. Run{" "}
           <Link className="underline" href="/setup">
             initial setup
@@ -175,12 +175,12 @@ function KpiCard({
   hint: string;
 }) {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-5">
-      <div className="text-xs font-medium uppercase tracking-wide text-zinc-500">
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] motion-safe:animate-[fade-up_500ms_ease-out_both]">
+      <div className="text-xs font-medium uppercase tracking-wide text-zinc-400">
         {title}
       </div>
       <div className="mt-2 text-2xl font-semibold tracking-tight">{value}</div>
-      <div className="mt-1 text-xs text-zinc-500">{hint}</div>
+      <div className="mt-1 text-xs text-zinc-400">{hint}</div>
     </div>
   );
 }
@@ -195,11 +195,11 @@ function Panel({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-5">
+    <section className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] motion-safe:animate-[fade-up_550ms_ease-out_both]">
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="text-sm font-semibold">{title}</div>
-          <div className="mt-1 text-xs text-zinc-500">{subtitle}</div>
+          <div className="mt-1 text-xs text-zinc-400">{subtitle}</div>
         </div>
       </div>
       <div className="mt-4">{children}</div>
@@ -209,8 +209,8 @@ function Panel({
 
 function MiniStat({ title, value }: { title: string; value: number }) {
   return (
-    <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-      <div className="text-xs font-medium uppercase tracking-wide text-zinc-500">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-4">
+      <div className="text-xs font-medium uppercase tracking-wide text-zinc-400">
         {title}
       </div>
       <div className="mt-1 text-xl font-semibold tracking-tight">
@@ -236,9 +236,9 @@ function LegendItem({
           className="h-2.5 w-2.5 rounded-full"
           style={{ backgroundColor: color }}
         />
-        <span className="text-zinc-700">{label}</span>
+        <span className="text-zinc-200">{label}</span>
       </div>
-      <div className="font-medium text-zinc-900">{value.toLocaleString()}</div>
+      <div className="font-medium text-zinc-50">{value.toLocaleString()}</div>
     </div>
   );
 }
@@ -264,14 +264,14 @@ function BarChart({
         role="img"
         aria-label="Headcount by department"
       >
-        <rect x="0" y="0" width={width} height={height} fill="white" />
+        <rect x="0" y="0" width={width} height={height} fill="#09090B" />
         {/* baseline */}
         <line
           x1={padding}
           y1={height - padding}
           x2={width - padding}
           y2={height - padding}
-          stroke="#E4E4E7"
+          stroke="#27272A"
         />
 
         {data.map((d, i) => {
@@ -294,7 +294,7 @@ function BarChart({
                 y={height - 10}
                 textAnchor="middle"
                 fontSize="10"
-                fill="#71717A"
+                fill="#A1A1AA"
               >
                 {truncate(d.label, 10)}
               </text>
@@ -303,7 +303,7 @@ function BarChart({
                 y={Math.max(14, y - 6)}
                 textAnchor="middle"
                 fontSize="10"
-                fill="#0F172A"
+                fill="#E4E4E7"
               >
                 {d.value}
               </text>
@@ -354,7 +354,7 @@ function DonutChart({
         cy={cy}
         r={r}
         fill="none"
-        stroke="#E4E4E7"
+        stroke="#27272A"
         strokeWidth="14"
       />
       {strokes.map((s) => (
@@ -377,7 +377,7 @@ function DonutChart({
         y={cy + 6}
         textAnchor="middle"
         fontSize="14"
-        fill="#0F172A"
+        fill="#E4E4E7"
         fontWeight="600"
       >
         {Math.round((segments[0]?.value ?? 0) * 100 / total)}% active

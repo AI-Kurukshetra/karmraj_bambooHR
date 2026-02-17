@@ -68,12 +68,12 @@ export default async function EmployeeDetailPage({
               {employee.first_name} {employee.last_name}
             </h1>
             {isDeleted ? (
-              <span className="rounded-full bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700">
+              <span className="rounded-full border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-xs font-medium text-zinc-200">
                 Deleted
               </span>
             ) : null}
           </div>
-          <p className="mt-1 text-sm text-zinc-600">
+          <p className="mt-1 text-sm text-zinc-300">
             {employee.employee_code} · {employee.email}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default async function EmployeeDetailPage({
         <div className="flex flex-wrap items-center gap-2">
           {!isDeleted ? (
             <Link
-              className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+              className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
               href={`/employees/${employee.id}/edit`}
             >
               Edit
@@ -100,7 +100,7 @@ export default async function EmployeeDetailPage({
           ) : (
             <form action={restoreEmployee.bind(null, employee.id)}>
               <button
-                className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+                className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
                 type="submit"
               >
                 Restore
@@ -109,7 +109,7 @@ export default async function EmployeeDetailPage({
           )}
 
           <Link
-            className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+            className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
             href="/employees"
           >
             Back
@@ -155,13 +155,13 @@ export default async function EmployeeDetailPage({
         <Card title="Related">
           <div className="flex flex-wrap gap-2">
             <Link
-              className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+              className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
               href={`/employees/${employee.id}/documents`}
             >
               Documents
             </Link>
             <Link
-              className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+              className="rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-900"
               href={`/employees/${employee.id}/compensation`}
             >
               Compensation
@@ -181,7 +181,7 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-5">
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
       <div className="text-sm font-semibold">{title}</div>
       <div className="mt-4 space-y-2">{children}</div>
     </div>
@@ -191,10 +191,10 @@ function Card({
 function Row({ label, value }: { label: string; value: string | null }) {
   return (
     <div className="flex items-baseline justify-between gap-4">
-      <div className="text-xs font-medium uppercase tracking-wide text-zinc-500">
+      <div className="text-xs font-medium uppercase tracking-wide text-zinc-400">
         {label}
       </div>
-      <div className="text-sm text-zinc-800">{value ?? "—"}</div>
+      <div className="text-sm text-zinc-100">{value ?? "—"}</div>
     </div>
   );
 }

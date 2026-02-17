@@ -69,9 +69,9 @@ export function EmployeeDocumentUploader({
   }
 
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-5">
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
       <div className="text-sm font-semibold">Upload document</div>
-      <p className="mt-1 text-sm text-zinc-600">
+      <p className="mt-1 text-sm text-zinc-300">
         Files are stored in Supabase Storage and access is enforced by RLS.
       </p>
 
@@ -83,11 +83,11 @@ export function EmployeeDocumentUploader({
 
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
         <div className="sm:col-span-1">
-          <label className="text-xs font-medium uppercase tracking-wide text-zinc-600">
+          <label className="text-xs font-medium uppercase tracking-wide text-zinc-400">
             Type
           </label>
           <select
-            className="mt-1 w-full rounded-lg border border-zinc-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-400"
+            className="mt-1 w-full rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-50 outline-none focus:ring-2 focus:ring-zinc-600"
             value={documentType}
             onChange={(e) => setDocumentType(e.target.value)}
           >
@@ -100,11 +100,11 @@ export function EmployeeDocumentUploader({
         </div>
 
         <div className="sm:col-span-2">
-          <label className="text-xs font-medium uppercase tracking-wide text-zinc-600">
+          <label className="text-xs font-medium uppercase tracking-wide text-zinc-400">
             File
           </label>
           <input
-            className="mt-1 w-full rounded-lg border border-zinc-200 px-3 py-2 text-sm"
+            className="mt-1 w-full rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-50 file:mr-4 file:rounded-md file:border-0 file:bg-white file:px-3 file:py-2 file:text-sm file:font-medium file:text-zinc-950"
             type="file"
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
           />
@@ -113,7 +113,7 @@ export function EmployeeDocumentUploader({
 
       <div className="mt-4 flex justify-end">
         <button
-          className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-50"
+          className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:bg-zinc-200 disabled:opacity-50"
           type="button"
           onClick={onUpload}
           disabled={isUploading}

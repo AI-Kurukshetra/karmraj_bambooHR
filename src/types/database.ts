@@ -521,6 +521,41 @@ export type Database = {
           deleted_at?: Timestamp | null;
         }
       >;
+      onboarding_template_items: TableDef<
+        {
+          id: string;
+          org_id: string;
+          template_id: string;
+          task_title: string;
+          default_due_days: number;
+          sort_order: number;
+          created_at: Timestamp;
+          updated_at: Timestamp;
+          deleted_at: Timestamp | null;
+        },
+        {
+          id?: string;
+          org_id: string;
+          template_id: string;
+          task_title: string;
+          default_due_days?: number;
+          sort_order?: number;
+          created_at?: Timestamp;
+          updated_at?: Timestamp;
+          deleted_at?: Timestamp | null;
+        },
+        {
+          id?: string;
+          org_id?: string;
+          template_id?: string;
+          task_title?: string;
+          default_due_days?: number;
+          sort_order?: number;
+          created_at?: Timestamp;
+          updated_at?: Timestamp;
+          deleted_at?: Timestamp | null;
+        }
+      >;
       onboarding_tasks: TableDef<
         {
           id: string;
@@ -652,6 +687,10 @@ export type Database = {
       };
       calculate_leave_days: {
         Args: { p_org_id: string; p_start: string; p_end: string };
+        Returns: number;
+      };
+      create_onboarding_tasks_from_template: {
+        Args: { p_employee_id: string; p_template_id: string; p_assigned_to: string };
         Returns: number;
       };
     };

@@ -8,9 +8,12 @@ import { getPublicEnvSafe } from "@/lib/env";
 export const dynamic = "force-dynamic";
 
 export default async function MarketingHomePage() {
-  if (!getPublicEnvSafe()) redirect("/health");
-  const user = await getCurrentUser();
-  if (user) redirect("/dashboard");
+  // Marketing pages should render even if Supabase env vars are not configured yet
+  // (common on a fresh Vercel deploy). If env is available, redirect signed-in users.
+  if (getPublicEnvSafe()) {
+    const user = await getCurrentUser();
+    if (user) redirect("/dashboard");
+  }
 
   return (
     <main>
@@ -129,14 +132,17 @@ function MockCard({ title, subtitle }: { title: string; subtitle: string }) {
 
 function TrustBar() {
   return (
-    <section className="bg-white">
+    <section className="bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-10">
-        <div className="text-center text-sm font-medium text-zinc-600">
+        <div className="text-center text-sm font-medium text-zinc-300">
           Trusted patterns for teams scaling to 1,000+ employees
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-3 text-center text-xs text-zinc-500 sm:grid-cols-4">
+        <div className="mt-6 grid grid-cols-2 gap-3 text-center text-xs text-zinc-400 sm:grid-cols-4">
           {["RLS everywhere", "Audit trails", "Soft deletes", "CSV exports"].map((x) => (
-            <div key={x} className="rounded-xl border border-zinc-200 bg-zinc-50 px-3 py-4">
+            <div
+              key={x}
+              className="rounded-xl border border-zinc-800 bg-zinc-900/40 px-3 py-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]"
+            >
               {x}
             </div>
           ))}
@@ -166,19 +172,19 @@ function Announcements() {
   ];
 
   return (
-    <section className="bg-sky-50">
+    <section className="bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-14">
-        <div className="text-sm font-semibold text-zinc-900">Announcements</div>
+        <div className="text-sm font-semibold text-zinc-50">Announcements</div>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {items.map((i) => (
             <Link
               key={i.title}
               href={i.href}
-              className="rounded-2xl border border-zinc-200 bg-white p-5 hover:bg-zinc-50"
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] transition-colors hover:bg-zinc-900/70 motion-safe:animate-[fade-up_550ms_ease-out_both]"
             >
               <div className="text-sm font-semibold">{i.title}</div>
-              <p className="mt-2 text-sm text-zinc-600">{i.body}</p>
-              <div className="mt-4 text-sm font-medium text-[#0b3a73]">
+              <p className="mt-2 text-sm text-zinc-300">{i.body}</p>
+              <div className="mt-4 text-sm font-medium text-sky-200">
                 Learn more →
               </div>
             </Link>
@@ -210,12 +216,12 @@ function PlatformSections() {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-2xl font-semibold tracking-tight">
           One platform, fewer spreadsheets
         </div>
-        <p className="mt-2 max-w-2xl text-sm text-zinc-600">
+        <p className="mt-2 max-w-2xl text-sm text-zinc-300">
           The core modules you need for Phase 1, designed with security and scale
           as first-class requirements.
         </p>
@@ -224,18 +230,18 @@ function PlatformSections() {
           {sections.map((s) => (
             <div
               key={s.title}
-              className="rounded-2xl border border-zinc-200 bg-white p-6"
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] motion-safe:animate-[fade-up_550ms_ease-out_both]"
             >
               <div className="text-sm font-semibold">{s.title}</div>
-              <p className="mt-2 text-sm text-zinc-600">{s.body}</p>
+              <p className="mt-2 text-sm text-zinc-300">{s.body}</p>
               <div className="mt-4 flex gap-2">
-                <span className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700">
+                <span className="rounded-full border border-zinc-800 bg-zinc-950 px-2 py-1 text-xs text-zinc-200">
                   RLS
                 </span>
-                <span className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700">
+                <span className="rounded-full border border-zinc-800 bg-zinc-950 px-2 py-1 text-xs text-zinc-200">
                   Audit
                 </span>
-                <span className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700">
+                <span className="rounded-full border border-zinc-800 bg-zinc-950 px-2 py-1 text-xs text-zinc-200">
                   Soft delete
                 </span>
               </div>
@@ -255,15 +261,18 @@ function ImpactStats() {
   ];
 
   return (
-    <section className="bg-sky-50">
+    <section className="bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-4 md:grid-cols-3">
           {stats.map((s) => (
-            <div key={s.k} className="rounded-2xl border border-zinc-200 bg-white p-6">
-              <div className="text-3xl font-semibold tracking-tight text-[#0b3a73]">
+            <div
+              key={s.k}
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] motion-safe:animate-[fade-up_550ms_ease-out_both]"
+            >
+              <div className="text-3xl font-semibold tracking-tight text-sky-200">
                 {s.k}
               </div>
-              <div className="mt-2 text-sm text-zinc-600">{s.v}</div>
+              <div className="mt-2 text-sm text-zinc-300">{s.v}</div>
             </div>
           ))}
         </div>
@@ -295,21 +304,24 @@ function Testimonials() {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-2xl font-semibold tracking-tight">
           Hear from teams like yours
         </div>
-        <p className="mt-2 max-w-2xl text-sm text-zinc-600">
+        <p className="mt-2 max-w-2xl text-sm text-zinc-300">
           Built for internal HR operations where security and clarity matter.
         </p>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {quotes.map((q) => (
-            <div key={q.name} className="rounded-2xl border border-zinc-200 bg-white p-6">
-              <p className="text-sm text-zinc-700">“{q.quote}”</p>
+            <div
+              key={q.name}
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] motion-safe:animate-[fade-up_550ms_ease-out_both]"
+            >
+              <p className="text-sm text-zinc-200">“{q.quote}”</p>
               <div className="mt-4 text-sm font-semibold">{q.name}</div>
-              <div className="text-xs text-zinc-500">{q.org}</div>
+              <div className="text-xs text-zinc-400">{q.org}</div>
             </div>
           ))}
         </div>
@@ -339,14 +351,17 @@ function FAQ() {
   ];
 
   return (
-    <section className="bg-sky-50">
+    <section className="bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-2xl font-semibold tracking-tight">FAQ</div>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {items.map((i) => (
-            <div key={i.q} className="rounded-2xl border border-zinc-200 bg-white p-6">
+            <div
+              key={i.q}
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] motion-safe:animate-[fade-up_550ms_ease-out_both]"
+            >
               <div className="text-sm font-semibold">{i.q}</div>
-              <p className="mt-2 text-sm text-zinc-600">{i.a}</p>
+              <p className="mt-2 text-sm text-zinc-300">{i.a}</p>
             </div>
           ))}
         </div>

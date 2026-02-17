@@ -51,7 +51,7 @@ export default function MarketingLayout({
 
       {children}
 
-      <footer className="border-t border-zinc-200 bg-white">
+      <footer className="border-t border-zinc-800 bg-zinc-950">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 py-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 font-semibold tracking-tight">
@@ -65,42 +65,42 @@ export default function MarketingLayout({
               />
               <span>PeopleOps HR</span>
             </div>
-            <p className="mt-2 max-w-md text-sm text-zinc-600">
+            <p className="mt-2 max-w-md text-sm text-zinc-300">
               A secure HRIS foundation built for growing teams: employee master,
               RBAC, leave, onboarding, reporting, and audit logging.
             </p>
           </div>
           <div className="text-sm">
-            <div className="font-medium text-zinc-900">Product</div>
-            <div className="mt-3 grid gap-2 text-zinc-600">
-              <Link className="hover:text-zinc-900" href="/features">
+            <div className="font-medium text-zinc-50">Product</div>
+            <div className="mt-3 grid gap-2 text-zinc-300">
+              <Link className="hover:text-white" href="/features">
                 Features
               </Link>
-              <Link className="hover:text-zinc-900" href="/security">
+              <Link className="hover:text-white" href="/security">
                 Security
               </Link>
-              <Link className="hover:text-zinc-900" href="/pricing">
+              <Link className="hover:text-white" href="/pricing">
                 Pricing
               </Link>
             </div>
           </div>
           <div className="text-sm">
-            <div className="font-medium text-zinc-900">Company</div>
-            <div className="mt-3 grid gap-2 text-zinc-600">
-              <Link className="hover:text-zinc-900" href="/customers">
+            <div className="font-medium text-zinc-50">Company</div>
+            <div className="mt-3 grid gap-2 text-zinc-300">
+              <Link className="hover:text-white" href="/customers">
                 Customers
               </Link>
-              <Link className="hover:text-zinc-900" href="/health">
+              <Link className="hover:text-white" href="/health">
                 Status
               </Link>
-              <Link className="hover:text-zinc-900" href="/login">
+              <Link className="hover:text-white" href="/login">
                 Sign in
               </Link>
             </div>
           </div>
         </div>
-        <div className="border-t border-zinc-200">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-xs text-zinc-500">
+        <div className="border-t border-zinc-800">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-xs text-zinc-400">
             <div>© {new Date().getFullYear()} PeopleOps HR</div>
             <div>Enterprise-ready by design</div>
           </div>
