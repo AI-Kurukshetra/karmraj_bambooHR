@@ -1,11 +1,48 @@
 import { requireUser } from "@/lib/auth";
 import { Sidebar } from "@/app/(app)/_components/Sidebar";
+import { getPublicEnvSafe } from "@/lib/env";
+import Link from "next/link";
+
+export const dynamic = "force-dynamic";
 
 export default async function AppLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const envOk = Boolean(getPublicEnvSafe());
+  if (!envOk) {
+    return (
+      <div className="min-h-screen bg-zinc-50">
+        <main className="mx-auto max-w-2xl px-6 py-16">
+          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+            <div className="text-sm font-semibold">Configuration required</div>
+            <p className="mt-2 text-sm text-zinc-600">
+              Set <code>NEXT_PUBLIC_SUPABASE_URL</code> and{" "}
+              <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> in your environment
+              (Vercel → Project → Settings → Environment Variables) to enable the
+              authenticated app.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link
+                href="/health"
+                className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm hover:bg-zinc-50"
+              >
+                View setup instructions
+              </Link>
+              <Link
+                href="/"
+                className="rounded-lg bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800"
+              >
+                Back to home
+              </Link>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   const user = await requireUser();
 
   return (
