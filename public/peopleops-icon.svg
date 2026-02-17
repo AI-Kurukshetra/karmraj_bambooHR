@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>PeopleOps HR Icon</title>
+  <desc>Original PeopleOps HR mark: stylized P with leaves.</desc>
+  <rect x="40" y="40" width="432" height="432" rx="104" fill="#0B3A73"/>
+
+  <!-- Leaf accents -->
+  <path d="M310 136c44 8 78 41 86 86-45 7-86-9-110-36 6-23 14-38 24-50Z" fill="#5EEAD4" opacity="0.95"/>
+  <path d="M214 176c-40 10-70 40-78 78 46 9 88-6 112-33-7-22-16-35-34-45Z" fill="#5EEAD4" opacity="0.85"/>
+
+  <!-- Stylized P (white) -->
+  <path d="M210 372c-14 0-26-12-26-26V182c0-14 12-26 26-26h92c58 0 104 40 104 96s-46 96-104 96h-66v-44h66c34 0 60-20 60-52s-26-52-60-52h-66v146c0 14-12 26-26 26Z" fill="white"/>
+
+  <!-- Inner cut to keep P open -->
+  <path d="M246 236h52c18 0 32 10 32 28s-14 28-32 28h-52v-56Z" fill="#0B3A73"/>
+</svg>
+

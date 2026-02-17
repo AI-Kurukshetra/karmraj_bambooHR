@@ -1,0 +1,20 @@
+node_modules/
+.next/
+out/
+dist/
+
+.DS_Store
+
+# Env (never commit)
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo
+
+# Supabase CLI temp
+supabase/.temp/
+
+# Playwright
+playwright-report/
+test-results/
+

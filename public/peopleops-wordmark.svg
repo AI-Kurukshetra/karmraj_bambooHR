@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="240" viewBox="0 0 920 240" fill="none">
+  <title>PeopleOps HR Wordmark</title>
+  <desc>Original PeopleOps HR logo with icon and wordmark.</desc>
+
+  <!-- Icon -->
+  <g transform="translate(0,0)">
+    <rect x="20" y="20" width="200" height="200" rx="54" fill="#0B3A73"/>
+    <path d="M144 62c34 6 60 32 66 66-34 6-64-6-82-28 4-18 10-30 16-38Z" fill="#5EEAD4" opacity="0.95"/>
+    <path d="M86 82c-30 8-52 30-58 58 34 7 66-5 84-24-5-16-12-26-26-34Z" fill="#5EEAD4" opacity="0.85"/>
+    <path d="M88 176c-10 0-18-8-18-18V78c0-10 8-18 18-18h64c40 0 72 28 72 66s-32 66-72 66h-46v-30h46c24 0 42-14 42-36s-18-36-42-36h-46v102c0 10-8 18-18 18Z" fill="white"/>
+    <path d="M112 110h36c12 0 22 6 22 18s-10 18-22 18h-36v-36Z" fill="#0B3A73"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(260,78)">
+    <text x="0" y="62" fill="#0B3A73" font-size="56" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700" letter-spacing="-0.5">
+      PeopleOps
+    </text>
+    <g transform="translate(360,10)">
+      <rect x="0" y="0" width="92" height="44" rx="22" fill="#5EEAD4"/>
+      <text x="46" y="30" text-anchor="middle" fill="#0B3A73" font-size="22" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="700">
+        HR
+      </text>
+    </g>
+    <text x="0" y="102" fill="#475569" font-size="18" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-weight="500">
+      Secure HRIS foundation
+    </text>
+  </g>
+</svg>
+

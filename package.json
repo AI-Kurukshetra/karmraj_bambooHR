@@ -1,0 +1,48 @@
+{
+  "name": "bamboohr",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "supabase:login": "supabase login",
+    "supabase:link": "supabase link",
+    "supabase:push": "supabase db push",
+    "supabase:pull": "supabase db pull",
+    "supabase:status": "supabase status"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.96.0",
+    "next": "^14.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.2.3",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^5.1.4",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "jsdom": "^28.1.0",
+    "postcss": "^8.5.6",
+    "supabase": "^2.76.9",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18",
+    "zod": "^4.3.6"
+  }
+}
